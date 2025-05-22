@@ -1,0 +1,11 @@
+{
+  "name": "todo-app",
+  "private": true,
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "tailwindcss": "^3.4.1"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./app/assets/tailwind/application.css -o ./app/assets/builds/application.css --minify"
+  }
+}

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Task Manager App Documentation
+    url: https://github.com/BanioBits/task-manager/wiki
+    about: Check our documentation before creating an issue
+  - name: Question or Discussion
+    url: https://github.com/BanioBits/task-manager/discussions
+    about: Ask questions and discuss with other community members

@@ -1,0 +1,25 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# they will be requested for review when someone opens a pull request.
+* @BanioBits/maintainers
+
+# App & Routes
+/app/controllers/ @BanioBits/backend
+/app/models/ @BanioBits/backend
+/config/routes.rb @BanioBits/backend
+
+# Frontend
+/app/views/ @BanioBits/frontend
+/app/javascript/ @BanioBits/frontend
+/app/assets/ @BanioBits/frontend
+
+# Database
+/db/ @BanioBits/backend
+
+# Tests
+/test/ @BanioBits/qa
+
+# DevOps
+/Dockerfile @BanioBits/devops
+/.github/ @BanioBits/devops
+/config/deploy.yml @BanioBits/devops

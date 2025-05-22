@@ -1,0 +1,36 @@
+<div id="<%= dom_id todo %>" class="flex items-center py-4">
+  <% if todo.completed? %>
+    <span class="text-primary-500 flex-shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 shadow-paper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+    </span>
+  <% else %>
+    <span class="text-background-300 flex-shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 shadow-paper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+      </svg>
+    </span>
+  <% end %>
+  
+  <div class="ml-5 flex-grow">
+    <div class="<%= todo.completed? ? 'line-through text-muted' : 'text-background-900' %> text-lg font-medium">
+      <%= todo.title %>
+    </div>
+    
+    <% if todo.categories.any? %>
+      <div class="flex flex-wrap gap-1.5 mt-2">
+        <% todo.categories.each do |category| %>
+          <span class="inline-flex items-center text-xs px-2.5 py-1 rounded-full bg-<%= category.color.gsub('-500', '-100') %> text-<%= category.color %> shadow-paper">
+            <div class="h-2 w-2 rounded-full bg-<%= category.color %> mr-1.5"></div>
+            <%= category.name %>
+          </span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  
+  <%= button_to toggle_todo_path(todo), method: :patch, class: "ml-3 text-sm text-primary-500 hover:text-primary-700 transition duration-150 flex-shrink-0 font-medium" do %>
+    <%= todo.completed? ? "Mark incomplete" : "Mark complete" %>
+  <% end %>
+</div>
