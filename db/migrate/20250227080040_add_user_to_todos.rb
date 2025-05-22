@@ -3,7 +3,7 @@ class AddUserToTodos < ActiveRecord::Migration[8.0]
     # Skip column creation since it already exists
     # Just ensure default user exists
     default_user = User.find_by(email: 'default@example.com')
-    
+
     unless default_user
       default_user = User.create!(
         email: 'default@example.com',
@@ -12,7 +12,7 @@ class AddUserToTodos < ActiveRecord::Migration[8.0]
       )
     end
   end
-  
+
   def down
     # No action needed for down
   end

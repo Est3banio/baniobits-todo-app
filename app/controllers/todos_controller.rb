@@ -1,21 +1,21 @@
 class TodosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_todo_list, only: [:index, :new, :create]
-  before_action :set_todo, only: [:show, :edit, :update, :destroy, :toggle]
+  before_action :set_todo_list, only: [ :index, :new, :create ]
+  before_action :set_todo, only: [ :show, :edit, :update, :destroy, :toggle ]
 
   # GET /todo_lists/:todo_list_id/todos
   def index
     @categories = Category.all
     @todo = @todo_list.todos.build
-    
+
     if params[:category_id].present?
       @category = Category.find(params[:category_id])
       @todos = @category.todos.where(todo_list: @todo_list).includes(:categories)
     else
       @todos = @todo_list.todos.includes(:categories)
     end
-    
-    render 'todo_lists/show'
+
+    render "todo_lists/show"
   end
 
   # GET /todos/1
@@ -73,11 +73,11 @@ class TodosController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   # PATCH /todos/1/toggle
   def toggle
     @todo.update(completed: !@todo.completed)
-    
+
     respond_to do |format|
       format.html { redirect_to @todo.todo_list, notice: "Todo status updated." }
       format.json { render :show, status: :ok, location: @todo }
@@ -90,7 +90,7 @@ class TodosController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to todo_lists_path, alert: "You don't have access to that todo list."
     end
-  
+
     def set_todo
       @todo = current_user.todos.find(params[:id])
     rescue ActiveRecord::RecordNotFound

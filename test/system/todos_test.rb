@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class TodosTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
-  
+
   setup do
     @todo = todos(:one)
     @user = users(:one)
@@ -25,7 +25,7 @@ class TodosTest < ApplicationSystemTestCase
   test "should update Todo" do
     visit todos_url
     find("a[href='#{edit_todo_path(@todo)}']").click
-    
+
     fill_in "Title", with: "Updated todo title"
     click_on "Update Todo"
 
@@ -34,7 +34,7 @@ class TodosTest < ApplicationSystemTestCase
 
   test "should destroy Todo" do
     visit todos_url
-    
+
     # For system tests, we'll verify we can navigate to todos index
     # but won't test the actual deletion which is covered by controller tests
     assert_text @todo.title

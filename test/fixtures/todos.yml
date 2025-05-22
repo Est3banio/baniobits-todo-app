@@ -4,8 +4,10 @@ one:
   title: MyString
   completed: false
   user: one
+  todo_list: one
 
 two:
   title: MyString
   completed: false
   user: one
+  todo_list: one

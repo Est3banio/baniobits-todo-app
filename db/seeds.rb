@@ -17,21 +17,21 @@ puts "Created #{categories.size} categories"
 
 # Create some sample todos
 todos = [
-  { title: "Buy groceries", completed: false, category_names: ["Shopping"] },
-  { title: "Finish project report", completed: false, category_names: ["Work", "Urgent"] },
-  { title: "Call doctor for appointment", completed: false, category_names: ["Personal"] },
-  { title: "Learn Ruby on Rails", completed: false, category_names: ["Learning"] },
-  { title: "Pay bills", completed: true, category_names: ["Personal", "Urgent"] }
+  { title: "Buy groceries", completed: false, category_names: [ "Shopping" ] },
+  { title: "Finish project report", completed: false, category_names: [ "Work", "Urgent" ] },
+  { title: "Call doctor for appointment", completed: false, category_names: [ "Personal" ] },
+  { title: "Learn Ruby on Rails", completed: false, category_names: [ "Learning" ] },
+  { title: "Pay bills", completed: true, category_names: [ "Personal", "Urgent" ] }
 ]
 
 todos.each do |todo_attrs|
   category_names = todo_attrs.delete(:category_names)
   categories = Category.where(name: category_names)
-  
+
   todo = Todo.find_or_create_by!(title: todo_attrs[:title]) do |t|
     t.completed = todo_attrs[:completed]
   end
-  
+
   todo.categories = categories
   todo.save!
 end

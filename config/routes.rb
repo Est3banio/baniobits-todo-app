@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+
   resources :todo_lists do
-    resources :todos, only: [:index, :new, :create]
+    resources :todos, only: [ :index, :new, :create ]
   end
-  
-  resources :todos, except: [:index, :new, :create] do
+
+  resources :todos, except: [ :index, :new, :create ] do
     member do
       patch :toggle
     end
   end
-  
+
   resources :categories
-  
+
   # Set the root path to the todo lists index
   root "todo_lists#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
