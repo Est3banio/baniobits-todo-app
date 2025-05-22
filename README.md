@@ -41,7 +41,7 @@ A modern and intuitive to-do application built with Ruby on Rails, allowing user
 1. Clone the repository
 
 ```bash
-git clone https://github.com/BanioBits/task-manager.git
+git clone https://github.com/Est3banio/baniobits-todo-app.git
 cd task-manager
 ```
 
@@ -128,3 +128,4 @@ This project is open source under the [MIT license](LICENSE).
 ## Support
 
 If you have any questions or need help with the Task Manager App, please open an issue on GitHub.
+
